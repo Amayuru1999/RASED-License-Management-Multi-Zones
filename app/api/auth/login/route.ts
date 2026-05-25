@@ -8,7 +8,8 @@ import {
   buildAuthorizationUrl,
 } from '@/lib/keycloak'
 
-const ZONE_URL = process.env.NEXT_PUBLIC_ZONE_URL || 'http://localhost:3002/licenses'
+const GATEWAY_URL = process.env.NEXT_PUBLIC_GATEWAY_URL || 'http://localhost'
+const ZONE_URL = process.env.NEXT_PUBLIC_ZONE_URL || `${GATEWAY_URL}/licenses`
 
 export async function GET(request: NextRequest) {
   const cookieStore = await cookies()
