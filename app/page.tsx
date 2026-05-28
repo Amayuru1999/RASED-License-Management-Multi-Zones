@@ -49,16 +49,16 @@ export default function UserManagement() {
   return (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900 flex items-center">
-            <Filter className="h-8 w-8 mr-3 text-primary" />
+        <div className="min-w-0">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 flex items-center">
+            <Filter className="h-7 w-7 sm:h-8 sm:w-8 mr-3 text-primary flex-shrink-0" />
             License Management
           </h1>
           <p className="text-slate-500 mt-2">
             Manage system licenses, approvals, and workflows.
           </p>
         </div>
-        <button className="flex items-center px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+        <button className="flex w-full sm:w-auto items-center justify-center px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
           <Plus className="h-4 w-4 mr-2" />
           Add User
         </button>
@@ -66,7 +66,7 @@ export default function UserManagement() {
 
       <Card>
         <CardHeader className="pb-3 border-b border-slate-100">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4">
             <CardTitle className="text-lg font-medium text-slate-700">User Directory</CardTitle>
             
             <div className="flex items-center w-full sm:w-auto gap-2">
@@ -88,7 +88,7 @@ export default function UserManagement() {
         </CardHeader>
         <CardContent className="p-0">
           <div className="overflow-x-auto">
-            <table className="w-full text-sm text-left">
+            <table className="w-full min-w-[720px] text-sm text-left">
               <thead className="text-xs text-slate-500 bg-slate-50 uppercase">
                 <tr>
                   <th className="px-6 py-3 font-medium">User</th>
@@ -163,11 +163,11 @@ export default function UserManagement() {
             </table>
           </div>
           
-          <div className="flex items-center justify-between px-6 py-3 border-t border-slate-100 bg-slate-50/50">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between px-4 sm:px-6 py-3 border-t border-slate-100 bg-slate-50/50">
             <span className="text-sm text-slate-500">
               Showing <span className="font-medium text-slate-900">{users.length}</span> results
             </span>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <button 
                 disabled={filters.page === 1}
                 onClick={() => setFilters({ page: filters.page - 1 })}
